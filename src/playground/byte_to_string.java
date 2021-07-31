@@ -13,26 +13,33 @@ public class byte_to_string {
 
         byte[] byteArr = s.getBytes(StandardCharsets.UTF_8);
         byte_to_string thisPlayground = new byte_to_string();
+        String newS = "";
 
         long currentTime = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
-            String newS = thisPlayground.createString(byteArr);
+            newS = thisPlayground.createString(byteArr);
         }
-        //26ms
+        //18ms
         System.out.println(System.currentTimeMillis() - currentTime);
+        System.out.println(newS);
 
         long currentTime2 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
-            String newS = thisPlayground.createStringFromJDK(byteArr);
+            newS = thisPlayground.createStringFromJDK(byteArr);
         }
         //38ms
         System.out.println(System.currentTimeMillis() - currentTime);
+        System.out.println(newS);
+
 
 
     }
     public String createString(byte[] byteArr){
         StringBuilder newStr = new StringBuilder();
         for (int i = 0; i < byteArr.length; i++){
+            if (byteArr[i] == 0){
+                break;
+            }
             newStr.append((char) byteArr[i]);
         }
         return newStr.toString();
