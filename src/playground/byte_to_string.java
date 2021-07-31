@@ -27,8 +27,8 @@ public class byte_to_string {
         for (int i = 0; i < 100000; i++){
             newS = thisPlayground.createStringFromJDK(byteArr);
         }
-        //28ms
-        System.out.println(System.currentTimeMillis() - currentTime);
+        //10ms
+        System.out.println(System.currentTimeMillis() - currentTime2);
         System.out.println(newS);
 
 
@@ -52,8 +52,7 @@ public class byte_to_string {
             }
             i -= 1;
         }
-        i += 1;
-        byte[] arrCpy = Arrays.copyOfRange(byteArr, 0, i);
+        byte[] arrCpy = Arrays.copyOfRange(byteArr, 0, i + 1);
         return new String(arrCpy, StandardCharsets.UTF_8);
     }
 }
