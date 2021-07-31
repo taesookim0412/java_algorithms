@@ -27,7 +27,7 @@ public class byte_to_string {
         for (int i = 0; i < 100000; i++){
             newS = thisPlayground.createStringFromJDK(byteArr);
         }
-        //38ms
+        //28ms
         System.out.println(System.currentTimeMillis() - currentTime);
         System.out.println(newS);
 
